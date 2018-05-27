@@ -23,7 +23,6 @@ def test_arguments():
         print(HELP_STRING)
         exit(1)
 
-
 def create_notification(content):
     '''Creating an output string depending on what the content was'''
     if content == 'today':
