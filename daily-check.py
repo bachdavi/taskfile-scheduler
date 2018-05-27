@@ -1,4 +1,4 @@
-import sys
+import sys, os
 
 NOTE_PATH='/Users/david/ownCloud/nvALT/Taskpaperx.txt'
 TASK = ''
@@ -36,15 +36,16 @@ def archive_tasks(content):
 
 
 def main():
+    output_string = ''
     '''Main method of the script'''
     with open(NOTE_PATH) as f:
         for line in f.readlines():
             splitted_line = [tag.rstrip() for tag in line.split('@')]
             tags = splitted_line[1:]
-            if tags:
+            if "today" in tags:
                 content = splitted_line[0].split('-')[1].strip()
-                print(tags)
-                print(content)
+                output_string += '- ' + content + '\n'
+    os.system('./notification.scpt "{}"'.format(output_string))
 
 if __name__ == "__main__":
     test_arguments()
