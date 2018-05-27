@@ -10,6 +10,7 @@ HELP_STRING= """ task_keeper:
         -n: Not changeing the task file"""
 
 def test_arguments():
+    '''Testing the usage of the script'''
     if len(sys.argv) != 2:
         print(HELP_STRING)
         exit(1)
